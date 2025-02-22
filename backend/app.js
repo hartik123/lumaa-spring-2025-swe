@@ -8,7 +8,7 @@ import cors from 'cors';
 import connectDB from './db/connectDB.js';
 import jwt from 'jsonwebtoken';
 import * as dotenv from 'dotenv';
-import userinfoModel from './models/signUpModel.js';
+import userinfoModel from './models/SignUpModel.js';
 dotenv.config();
 
 const app = express();

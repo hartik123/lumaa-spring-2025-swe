@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom'
 import { BackendURLContext, UserLoginContext } from '../components/Navigation'
 
 const Login = () => {
-  const [username, setUsername] = useState("hartik");
-  const [password, setPassword] = useState("123");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const { userLoginContext, setUserLoginContext } = React.useContext(UserLoginContext);

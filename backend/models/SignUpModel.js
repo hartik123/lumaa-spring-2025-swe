@@ -5,6 +5,6 @@ const userInfoSchema = mongoose.Schema({
     password: {type:String}
 });
 
-const userinfoModel = mongoose.model("user", userInfoSchema);
+const userinfoModel = mongoose.models.User || mongoose.model("User", userInfoSchema);
 
 export default userinfoModel;
