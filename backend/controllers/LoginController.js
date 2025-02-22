@@ -1,4 +1,4 @@
-import userinfoModel from "../models/signUpModel.js";
+import userinfoModel from "../models/SignUpModel.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt"; // Use bcrypt for password security
 
