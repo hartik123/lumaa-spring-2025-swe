@@ -16,9 +16,10 @@ const ManageTask = () => {
     taskStatus: ""
   });
   const [taskSelectedIndex, setTaskSelectedIndex] = useState(-1);
+  const backendURL = useContext(BackendURLContext).backendURL;
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/task/getAll", {
+    axios.get(`${backendURL}/api/task/getAll`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       }

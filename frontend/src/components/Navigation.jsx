@@ -8,12 +8,14 @@ import { MdOutlineLogout } from "react-icons/md";
 
 
 export const UserLoginContext = createContext();
+export const BackendURLContext = createContext();
 
 export const Navigation = () => {
     const [userLoginContext, setUserLoginContext] = useState(false);
 
     return (
-       <UserLoginContext.Provider value={{ userLoginContext, setUserLoginContext }}>
+       <BackendURLContext.Provider value={{ backendURL: 'https://task-manager-backend-gizf.onrender.com' }}>
+        <UserLoginContext.Provider value={{ userLoginContext, setUserLoginContext }}>
          <BrowserRouter>
             <div>
                 <div style={{
@@ -63,5 +65,7 @@ export const Navigation = () => {
         </BrowserRouter>
 
        </UserLoginContext.Provider>
+
+       </BackendURLContext.Provider>
     );
 };

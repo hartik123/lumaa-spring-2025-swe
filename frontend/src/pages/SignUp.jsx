@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -8,6 +8,7 @@ const Signup = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const backendURL = useContext(BackendURLContext).backendURL;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,7 +21,7 @@ const Signup = () => {
             return;
         }
 
-        axios.post("http://localhost:8000/api/signup", {
+        axios.post(`${backendURL}/api/signup`, {
             username: username,
             password: password,
         })

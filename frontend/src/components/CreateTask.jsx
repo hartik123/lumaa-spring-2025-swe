@@ -1,52 +1,91 @@
-import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import axios from 'axios';
-import CreateTask from '../components/CreateTask'; // Adjust the path based on your project structure
+import React, { useState } from 'react';
 
-jest.mock('axios'); // Mock axios
+const CreateTask = () => {
+    const [task, setTask] = useState({
+        taskDate: "",
+        taskTime: "23:59",
+        taskDescription: "",
+        taskStatus: "Pending"
+    });
+    const backendURL = useContext(BackendURLContext).backendURL;
 
-describe('CreateTask Component', () => {
-  test('should allow the user to create a task successfully', async () => {
-    axios.post.mockResolvedValueOnce({ status: 201 });
 
-    render(<CreateTask />);
+    const submitForm = () => {
+        axios.post(`${backendURL}/api/task/create`, task, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+                "Content-Type": "application/json"
+            }
+        })
+            .then((res) => {
+                res.status === 201 ? alert("Task created successfully!") : alert("Task not created");
+            })
+            .catch((error) => {
+                console.error(error);
+                alert("Task creation failed");
+            });
+    };
 
-    // Fill out the form
-    fireEvent.change(screen.getByLabelText(/Task Date & Time/i), { target: { value: '2025-02-25T14:30' } });
-    fireEvent.change(screen.getByLabelText(/Task Description/i), { target: { value: 'Test Task' } });
-    fireEvent.change(screen.getByLabelText(/Task Status/i), { target: { value: 'InProgress' } });
+    return (
+        <div className="container mt-5">
+            <div className="row justify-content-center">
+                <div className="col-md-6">
+                    <div className="card shadow-sm">
+                        <div className="card-body">
+                            <h2 className="card-title text-center mb-4">Create Task</h2>
+                            <form>
+                                <div className="mb-3">
+                                    <label htmlFor="taskDate" className="form-label">Task Date & Time:</label>
+                                    <input
+                                        type="datetime-local"
+                                        id="taskDate"
+                                        className="form-control"
+                                        onChange={(e) => setTask({ ...task, taskDate: e.target.value })}
+                                    />
+                                </div>
 
-    // Click submit button
-    fireEvent.click(screen.getByText(/Submit/i));
+                                <div className="mb-3">
+                                    <label htmlFor="taskDescription" className="form-label">Task Description:</label>
+                                    <input
+                                        type="text"
+                                        id="taskDescription"
+                                        name="taskDescription"
+                                        className="form-control"
+                                        onChange={(e) => setTask({ ...task, taskDescription: e.target.value })}
+                                    />
+                                </div>
 
-    // Assert that API call is made
-    await waitFor(() => expect(axios.post).toHaveBeenCalledTimes(1));
-    expect(axios.post).toHaveBeenCalledWith(
-      'http://localhost:8000/api/task/create',
-      {
-        taskDate: '2025-02-25T14:30',
-        taskTime: '23:59',
-        taskDescription: 'Test Task',
-        taskStatus: 'InProgress'
-      },
-      { headers: { Authorization: expect.any(String), "Content-Type": "application/json" } }
+                                <div className="mb-3">
+                                    <label htmlFor="status" className="form-label">Task Status:</label>
+                                    <select
+                                        name="status"
+                                        id="status"
+                                        className="form-select"
+                                        onChange={(e) => setTask({ ...task, taskStatus: e.target.value })}
+                                    >
+                                        <option value="Pending">Pending</option>
+                                        <option value="InProgress">In Progress</option>
+                                        <option value="Completed">Completed</option>
+                                    </select>
+                                </div>
+
+                                <div className="d-grid gap-2">
+                                    <button
+                                        type="button"
+                                        className="btn btn-primary"
+                                        onClick={submitForm}
+                                    >
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     );
+};
 
-    // Verify alert message
-    await waitFor(() => expect(window.alert).toHaveBeenCalledWith('Task created successfully!'));
-  });
-
-  test('should show an alert when task creation fails', async () => {
-    axios.post.mockRejectedValueOnce(new Error('Task creation failed'));
-
-    render(<CreateTask />);
-
-    fireEvent.change(screen.getByLabelText(/Task Date & Time/i), { target: { value: '2025-02-25T14:30' } });
-    fireEvent.change(screen.getByLabelText(/Task Description/i), { target: { value: 'Failed Task' } });
-
-    fireEvent.click(screen.getByText(/Submit/i));
-
-    await waitFor(() => expect(window.alert).toHaveBeenCalledWith('Task creation failed'));
-  });
-});
+export default CreateTask;

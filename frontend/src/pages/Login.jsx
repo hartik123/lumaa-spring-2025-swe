@@ -11,6 +11,8 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const { userLoginContext, setUserLoginContext } = React.useContext(UserLoginContext);
+  const backendURL = useContext(BackendURLContext).backendURL;
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,7 +20,7 @@ const Login = () => {
       setError("Username and password are required");
       return;
     }
-    axios.post("http://localhost:8000/api/login", {
+    axios.post(`${backendURL}/api/login`, {
       "username": username,
       "password": password,
     })
