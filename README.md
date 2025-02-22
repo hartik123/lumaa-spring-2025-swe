@@ -1,4 +1,4 @@
-# Full-Stack Coding Challenge
+<img width="1468" alt="image" src="https://github.com/user-attachments/assets/59000b80-8844-40ea-a2c2-c3af07cb9dc6" /># Full-Stack Coding Challenge
 
 **Deadline**: Sunday, Feb 23th 11:59 pm PST
 
@@ -117,3 +117,45 @@ This challenge is intended to be completed within ~3 hours, so keep solutions mi
    - Minimal hard-coded values
 
 Good luck, and we look forward to your submission!
+
+**Answer:**
+Live Project Link: 
+
+Instructions to run Projects:->
+git clone https://github.com/hartik123/lumaa-spring-2025-swe.git
+cd frontend
+npm install
+npm start \\comment: command for running frontend application
+
+\\instruction: open another terminal
+cd backend
+npm install 
+\\instruction create .env file and paste below lines in the file for initialzing the variable values for the backend project like PORT, Database URL, JWT_Secret
+\\Paste this:->DATABASE_URL = "mongodb+srv://hartik:Suhagiya%40123@cluster0.ewf0cut.mongodb.net/taskmanager?retryWrites=true&w=majority&appName=Cluster0"
+\\Paste this:->PORT = 8000
+\\Paste this:->JWT_SECRET = "secretkeyappearshere"
+node app.js
+
+
+
+Features Developed:
+1. User SignUp
+   <img width="1468" alt="image" src="https://github.com/user-attachments/assets/b78c7277-7968-4168-ba73-b34d8a03f245" />
+
+
+3. User Login
+<img width="1468" alt="image" src="https://github.com/user-attachments/assets/7e1e25a0-0520-43de-8bf3-8e45d575f698" />
+5. User Create Task
+   <img width="1468" alt="image" src="https://github.com/user-attachments/assets/009f5e71-6d31-4123-8600-094b4d54e713" />
+   <img width="1468" alt="image" src="https://github.com/user-attachments/assets/2ebc7d2f-8781-424a-9bfd-7a1cf2196e9e" />
+
+
+7. User Update Task
+   <img width="1468" alt="image" src="https://github.com/user-attachments/assets/a1f3a489-d8c6-42b8-9507-57a952f18761" />
+
+9. User Read Task
+   <img width="1468" alt="image" src="https://github.com/user-attachments/assets/17507bde-8279-4b63-b88e-ed67a300f491" />
+
+10. User Delete Task
+
+   Pressing red color delete button deletes the task from the users Task List.
