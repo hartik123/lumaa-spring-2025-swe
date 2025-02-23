@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Link, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Link, Routes, Route, Navigate } from 'react-router-dom';
 import SignUp from '../pages/SignUp';
 import Login from '../pages/Login';
 import Dashboard from '../pages/Dashboard';
@@ -12,10 +12,10 @@ export const BackendURLContext = createContext();
 
 export const Navigation = () => {
     const [userLoginContext, setUserLoginContext] = useState(false);
-    const navigate = useNavigate();
 
     return (
-       <BackendURLContext.Provider value={{ backendURL: 'https://task-manager-backend-gizf.onrender.com' }}>
+    //    <BackendURLContext.Provider value={{ backendURL: 'https://task-manager-backend-gizf.onrender.com' }}>
+       <BackendURLContext.Provider value={{ backendURL: 'http://localhost:8000' }}>
         <UserLoginContext.Provider value={{ userLoginContext, setUserLoginContext }}>
          <BrowserRouter>
             <div>
@@ -47,9 +47,8 @@ export const Navigation = () => {
                         <button
                             onClick={() => {
                                 localStorage.removeItem("token"); // Remove token
-                                // window.location.reload(); // Refresh page
+                                window.location.reload(); // Refresh page
                                 setUserLoginContext(userLoginContext => !userLoginContext);
-                                navigate("/login");
                             }}
                             style={{ color: 'white', background: 'red', border: 'none', cursor: 'pointer', textDecoration: 'none' }}
                         >

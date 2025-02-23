@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const TaskSchema = mongoose.Schema({
+    username: {
+        type: String,
+        required: true
+    },
     taskDate: {
         type: String,
         required: true

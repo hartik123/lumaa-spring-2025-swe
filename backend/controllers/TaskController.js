@@ -27,6 +27,7 @@ const CreateTaskController = async (req, res) => {
 
 const GetTaskController = async (req, res) => {
     try {
+        console.log(req.user.username)
         const tasks = await TaskModel.find({username: req.user.username});
         if (tasks) {
             res.status(200).send(tasks);
