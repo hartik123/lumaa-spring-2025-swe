@@ -124,7 +124,7 @@ Good luck, and we look forward to your submission!
 ## 🚀 Live Project Link
 [Click Here](https://lumaataskmanager.netlify.app/)
 
-# Project Demo
+## Project Demo
 [Click Here](https://drive.google.com/file/d/1rGLY53b2MrdEy1M6Uq4x0csFcbv6A2vz/view?usp=sharing)
 
 # API Design
