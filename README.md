@@ -378,6 +378,8 @@ node app.js
 - **Hosting:** Netlify (Frontend), Render (Backend)
 
 ---
+## Salary
+around 15$ per hour (Open for Discussion)
 
 ## 📞 Contact
 For any queries, feel free to reach out!
