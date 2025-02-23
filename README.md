@@ -1,4 +1,4 @@
-# Full-Stack Coding Challenge
+# Solution to the Task Manager Full-Stack Coding Challenge
 
 **Deadline**: Sunday, Feb 23th 11:59 pm PST
 
@@ -118,11 +118,194 @@ This challenge is intended to be completed within ~3 hours, so keep solutions mi
 
 Good luck, and we look forward to your submission!
 
-**Answer:**
+**Project Solution:**
 # Lumaa Spring 2025 SWE
 
 ## 🚀 Live Project Link
-[Click Here](YOUR_LIVE_PROJECT_LINK_HERE)
+[Click Here](https://lumaataskmanager.netlify.app/)
+
+# API Design
+
+This API provides user authentication and task management functionalities.
+
+## Base URL
+`https://lumaataskmanager.netlify.app/api`
+
+## Endpoints
+
+### 1. Create User
+**Request Type:** `POST`
+
+**Endpoint:** `/signup`
+
+**Body:**
+```json
+{
+  "username": "",
+  "password": ""
+}
+```
+
+**Response:**
+```json
+{
+  "user": {
+    "username": "",
+    "token": "JWTtoken"
+  }
+}
+```
+
+---
+
+### 2. Login User
+**Request Type:** `POST`
+
+**Endpoint:** `/login`
+
+**Body:**
+```json
+{
+  "username": "",
+  "password": ""
+}
+```
+
+**Response:**
+```json
+{
+  "user": {
+    "username": "",
+    "token": "JWTtoken"
+  }
+}
+```
+
+---
+
+### 3. Create Task
+**Request Type:** `POST`
+
+**Endpoint:** `/task/create`
+
+**Headers:**
+```text
+Authorization: Bearer <JWT Token>
+```
+
+**Body:**
+```json
+{
+  "taskDate": "",
+  "taskTime": "",
+  "taskDescription": "",
+  "taskStatus": ""
+}
+```
+
+**Response:**
+```json
+{
+  "task": {
+    "username": "",
+    "taskDate": "",
+    "taskTime": "",
+    "taskDescription": "",
+    "taskStatus": ""
+  }
+}
+```
+
+---
+
+### 4. Update Task
+**Request Type:** `PUT`
+
+**Endpoint:** `/task/update`
+
+**Headers:**
+```text
+Authorization: Bearer <JWT Token>
+```
+
+**Body:**
+```json
+{
+  "taskId": "",
+  "taskDate": "",
+  "taskTime": "",
+  "taskDescription": "",
+  "taskStatus": ""
+}
+```
+
+**Response:**
+```json
+{
+  "task": {
+    "username": "",
+    "taskId": "",
+    "taskDate": "",
+    "taskTime": "",
+    "taskDescription": "",
+    "taskStatus": ""
+  }
+}
+```
+
+---
+
+### 5. Read All Tasks
+**Request Type:** `GET`
+
+**Endpoint:** `/task/getAll`
+
+**Headers:**
+```text
+Authorization: Bearer <JWT Token>
+```
+
+**Response:**
+```json
+[
+  {
+    "username": "",
+    "taskId": "",
+    "taskDate": "",
+    "taskTime": "",
+    "taskDescription": "",
+    "taskStatus": ""
+  }
+]
+```
+
+---
+
+### 6. Delete Task
+**Request Type:** `DELETE`
+
+**Endpoint:** `/task/delete/:taskId`
+
+**Headers:**
+```text
+Authorization: Bearer <JWT Token>
+```
+
+**Response:**
+```json
+{
+  "task": {
+    "username": "",
+    "taskId": "",
+    "taskDate": "",
+    "taskTime": "",
+    "taskDescription": "",
+    "taskStatus": ""
+  }
+}
+```
+
+---
 
 ## 📌 Project Setup & Installation
 
@@ -139,7 +322,7 @@ npm install
 npm start  # Starts the frontend application
 ```
 
-### 3️⃣ Setup & Run the Backend
+### 3️⃣ Setup the Backend
 #### Open a new terminal and run:
 ```sh
 cd backend
@@ -194,9 +377,8 @@ node app.js
 ---
 
 ## 📞 Contact
-For any queries or contributions, feel free to reach out!
+For any queries, feel free to reach out!
 
 🔗 **GitHub:** [hartik123](https://github.com/hartik123)  
-✉️ **Email:** hartik.suhagiya@example.com
-
+✉️ **Email:** hartiksuhagiya10@gmail.com
 
