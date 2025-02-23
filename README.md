@@ -127,6 +127,9 @@ Good luck, and we look forward to your submission!
 ## Project Demo
 [Click Here](https://drive.google.com/file/d/1rGLY53b2MrdEy1M6Uq4x0csFcbv6A2vz/view?usp=sharing)
 
+# Encryption
+Used bcrypt library for password encryption.
+
 # API Design
 
 This API provides user authentication and task management functionalities.
