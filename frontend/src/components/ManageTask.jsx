@@ -38,7 +38,7 @@ const ManageTask = () => {
   }, []);
 
   const handleSave = () => {
-    axios.put(`http://localhost:8000/api/task/update`, task, {
+    axios.put(`${backendURL}/api/task/update`, task, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       }
